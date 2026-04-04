@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit File Name</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        .bg-mesh {
+            background-color: #000000;
+            background-image:
+                radial-gradient(at 0% 0%, rgba(79, 70, 229, 0.06) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.04) 0px, transparent 50%);
+        }
+    </style>
+</head>
+<body class="bg-mesh text-white min-h-screen flex items-center justify-center px-4">
+
+    <!-- FORM -->
+    <section class="animate-fade-in w-full max-w-md">
+        <div class="bg-zinc-900/90 border border-zinc-800 rounded-2xl p-8 shadow-2xl">
+            
+            <h1 class="text-3xl font-bold text-center text-orange-400 mb-2">
+                Edit File Name
+            </h1>
+            <p class="text-center text-zinc-400 mb-8 text-sm">
+                Rename your existing task file
+            </p>
+
+            <form action="/edit" method="POST" class="space-y-5 flex flex-col items-center">
+
+                <!-- Old File Name -->
+                <div class="w-full">
+                    <label class="block text-sm text-zinc-400 mb-2">Old File Name</label>
+                    <input
+                        name="oldName"
+                        type="text"
+                        placeholder="Enter old file name"
+                        required
+                        value="<%= filename %>"
+                        class="w-full bg-zinc-800 border border-zinc-700 rounded-md px-4 py-3 text-white placeholder:text-zinc-400 outline-none focus:ring-2 focus:ring-orange-400"
+                    >
+                </div>
+
+                <!-- New File Name -->
+                <div class="w-full">
+                    <label class="block text-sm text-zinc-400 mb-2">New File Name</label>
+                    <input
+                        name="newName"
+                        type="text"
+                        placeholder="Enter new file name"
+                        required
+                        class="w-full bg-zinc-800 border border-zinc-700 rounded-md px-4 py-3 text-white placeholder:text-zinc-400 outline-none focus:ring-2 focus:ring-orange-400"
+                    >
+                </div>
+
+                <!-- Submit Button -->
+                <button
+                    type="submit"
+                    class="w-full py-3 bg-orange-500 hover:bg-orange-600 rounded-md font-semibold text-white transition duration-300"
+                >
+                    Rename File
+                </button>
+
+                <!-- Back Button -->
+                <a href="/"
+                   class="w-full text-center py-3 bg-zinc-800 hover:bg-zinc-700 rounded-md font-semibold text-white transition duration-300">
+                    Back to Home
+                </a>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>
